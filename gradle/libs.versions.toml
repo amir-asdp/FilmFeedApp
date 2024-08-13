@@ -1,31 +1,88 @@
 [versions]
-agp = "8.5.0"
-kotlin = "1.9.0"
+# region Base Java & Kotlin Packages
 coreKtx = "1.13.1"
+lifecycle = "2.8.4"
+workRuntime = "2.9.1"
+room = "2.6.1"
+kotlinxCoroutinesCore = "1.8.0-RC2"
+kotlinxCoroutinesAndroid = "1.7.3"
+koinBom = "3.6.0-wasm-alpha2"
+# endregion
+
+# region UI Packages
+appcompat = "1.7.0"
+material = "1.12.0"
+activityCompose = "1.9.1"
+composeBom = "2024.06.00"
+glide = "4.14.2"
+# endregion
+
+# region Web Packages
+retrofit = "2.9.0"
+# endregion
+
+# region Test Packages
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.8.4"
-activityCompose = "1.9.1"
-composeBom = "2024.04.01"
+# endregion
+
+# region Plugins
+agp = "8.5.2"
+kotlin = "2.0.0"
+# endregion
+
 
 [libraries]
+# region Base Java & Kotlin Packages
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-viewmodel-ktx = {group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-livedata-ktx = {group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle"}
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-work-runtime = {group = "androidx.work", name = "work-runtime", version.ref = "workRuntime"}
+androidx-room-ktx = {group = "androidx.room", name = "room-ktx", version.ref = "room"}
+androidx-room-runtime = {group = "androidx.room", name = "room-runtime", version.ref = "room"}
+androidx-room-compiler = {group = "androidx.room", name = "room-compiler", version.ref = "room"}
+jetbrains-kotlinx-coroutines-core = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore"}
+jetbrains-kotlinx-coroutines-android = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid"}
+koin-bom = {group = "io.insert-koin", name = "koin-bom", version.ref = "koinBom"}
+koin-core = {group = "io.insert-koin", name = "koin-core"}
+koin-core-coroutines = {group = "io.insert-koin", name = "koin-core-coroutines"}
+koin-android = {group = "io.insert-koin", name = "koin-android"}
+# endregion
+
+# region UI Packages
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+google-android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+github-bumptech-glide = {group = "com.github.bumptech.glide", name = "glide", version.ref = "glide"}
+github-bumptech-compiler = {group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide"}
+# endregion
+
+# region Web Packages
+squareup-retrofit2 = {group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit"}
+squareup-retrofit2-converter-gson = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit"}
+# endregion
+
+# region Test Packages
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+# endregion
+
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-application = {id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+jetbrains-kotlin-android = {id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+jetbrains-kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
