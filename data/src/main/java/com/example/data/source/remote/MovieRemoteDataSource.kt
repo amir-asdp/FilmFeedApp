@@ -1,7 +1,7 @@
 package com.example.data.source.remote
 
-import com.example.data.constant.Constants.RemoteDataSource.Url.Movie
-import com.example.data.constant.Constants.RemoteDataSource.QueryParam
+import com.example.data.constant.Constants.RemoteDataSource.ApiUrl.Movie
+import com.example.data.constant.Constants.RemoteDataSource.ApiQueryParam
 import com.example.data.model.remote.MovieDetailsResponse
 import com.example.data.model.remote.MovieListResponse
 import retrofit2.Response
@@ -13,21 +13,21 @@ interface MovieRemoteDataSource {
 
     @GET(Movie.GET_TOP_RATED)
     suspend fun getTopRated(
-        @Query(QueryParam.API_KEY_KEY) apiKey: String,
-        @Query(QueryParam.PAGE) page: Int
+        @Query(ApiQueryParam.API_KEY_KEY) apiKey: String,
+        @Query(ApiQueryParam.PAGE) page: Int
     ): Response<MovieListResponse>
 
     @GET(Movie.GET_DETAILS)
     suspend fun getDetailsById(
-        @Query(QueryParam.API_KEY_KEY) apiKey: String,
+        @Query(ApiQueryParam.API_KEY_KEY) apiKey: String,
         @Path(Movie.PATH_MOVIE_ID) movieId: Int
     ): Response<MovieDetailsResponse>
 
     @GET(Movie.GET_SEARCH)
     suspend fun search(
-        @Query(QueryParam.API_KEY_KEY) apiKey: String,
-        @Query(QueryParam.PAGE) page: Int,
-        @Query(QueryParam.SEARCH_QUERY) query: String
+        @Query(ApiQueryParam.API_KEY_KEY) apiKey: String,
+        @Query(ApiQueryParam.PAGE) page: Int,
+        @Query(ApiQueryParam.SEARCH_QUERY) query: String
     ): Response<MovieListResponse>
 
 }

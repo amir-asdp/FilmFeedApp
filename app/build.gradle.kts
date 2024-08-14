@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.core.coroutines)
     implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
     implementation(libs.github.bumptech.glide)
     annotationProcessor(libs.github.bumptech.compiler)
     // endregion
@@ -87,7 +88,5 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     // endregion
-
-
 
 }

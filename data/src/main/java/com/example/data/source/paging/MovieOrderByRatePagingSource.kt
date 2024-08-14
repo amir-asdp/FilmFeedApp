@@ -8,10 +8,9 @@ import com.example.data.source.remote.MovieRemoteDataSource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 
-class MovieSearchPagingSource(
+class MovieOrderByRatePagingSource(
     private val movieRemoteDataSource: MovieRemoteDataSource,
-    private val coroutineDispatcher: CoroutineDispatcher,
-    private val searchQuery: String
+    private val coroutineDispatcher: CoroutineDispatcher
 ) : PagingSource<Int, MovieBrief>() {
 
     override fun getRefreshKey(state: PagingState<Int, MovieBrief>): Int? {
@@ -25,7 +24,7 @@ class MovieSearchPagingSource(
         return withContext(coroutineDispatcher){
             try {
                 val currentPage = params.key ?: 1
-                val response = movieRemoteDataSource.search(ApiQueryParam.API_KEY_VALUE, currentPage, searchQuery)
+                val response = movieRemoteDataSource.getTopRated(ApiQueryParam.API_KEY_VALUE, currentPage)
                 val loadedList = response.body()?.results?.map { MovieBrief.toMovieBrief(it!!) } ?: listOf()
                 LoadResult.Page(
                     data = loadedList,
