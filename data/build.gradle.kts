@@ -32,7 +32,6 @@ android {
 dependencies {
 
     // region Base Java & Kotlin Packages
-    implementation(project(":domain"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.work.runtime)
     implementation(libs.androidx.room.ktx)
