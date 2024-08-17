@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.koin.core.coroutines)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
+    implementation(libs.koin.androidx.compose.navigation)
     implementation(libs.github.bumptech.glide)
     annotationProcessor(libs.github.bumptech.compiler)
     // endregion
@@ -78,6 +79,7 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.coil.kt.compose)
     // endregion
 
 

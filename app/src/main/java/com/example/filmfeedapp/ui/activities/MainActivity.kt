@@ -1,4 +1,4 @@
-package com.example.filmfeedapp
+package com.example.filmfeedapp.ui.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

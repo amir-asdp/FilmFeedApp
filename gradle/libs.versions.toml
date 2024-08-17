@@ -8,6 +8,7 @@ paging = "3.3.2"
 kotlinxCoroutinesCore = "1.8.0-RC2"
 kotlinxCoroutinesAndroid = "1.7.3"
 koinBom = "3.6.0-wasm-alpha2"
+glide = "4.14.2"
 # endregion
 
 # region UI Packages
@@ -15,7 +16,7 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activityCompose = "1.9.1"
 composeBom = "2024.06.00"
-glide = "4.14.2"
+coilCompose = "2.7.0"
 # endregion
 
 # region Web Packages
@@ -53,6 +54,7 @@ koin-core = {group = "io.insert-koin", name = "koin-core"}
 koin-core-coroutines = {group = "io.insert-koin", name = "koin-core-coroutines"}
 koin-android = {group = "io.insert-koin", name = "koin-android"}
 koin-androidx-compose = {group = "io.insert-koin", name = "koin-androidx-compose"}
+koin-androidx-compose-navigation = {group = "io.insert-koin", name = "koin-androidx-compose-navigation"}
 github-bumptech-glide = {group = "com.github.bumptech.glide", name = "glide", version.ref = "glide"}
 github-bumptech-compiler = {group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide"}
 # endregion
@@ -67,6 +69,7 @@ androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graph
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilCompose" }
 # endregion
 
 # region Web Packages

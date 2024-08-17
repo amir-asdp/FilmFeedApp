@@ -33,7 +33,6 @@ dependencies {
 
     implementation(project(":data"))
     implementation(libs.androidx.paging.runtime)
-    implementation(libs.androidx.paging.compose)
     implementation(libs.jetbrains.kotlinx.coroutines.core)
     implementation(libs.jetbrains.kotlinx.coroutines.android)
     testImplementation(libs.junit)
