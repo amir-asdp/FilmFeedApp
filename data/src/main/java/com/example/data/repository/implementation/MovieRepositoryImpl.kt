@@ -36,6 +36,8 @@ class MovieRepositoryImpl(
             }
             catch (e: Exception){
                 ResultWrapper.CancelOrFailure(e)
+            }.also {
+                emit(it)
             }
         }
     }
