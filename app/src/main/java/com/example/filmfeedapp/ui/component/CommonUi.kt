@@ -1,13 +1,19 @@
-package com.example.filmfeedapp.ui.components
+package com.example.filmfeedapp.ui.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -36,7 +42,8 @@ fun MovieItemGridCard(
     ElevatedCard(
         modifier = modifier.padding(16.dp),
         onClick = onClick,
-        shape = RoundedCornerShape(16.dp)
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 8.dp)
         ) {
 
         Column(modifier = modifier.padding(16.dp)) {
@@ -48,12 +55,14 @@ fun MovieItemGridCard(
                 placeholder = painterResource(R.drawable.twotone_movie_24),
                 contentDescription = "",
                 contentScale = ContentScale.Fit,
-                modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp))
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(16.dp))
             )
             Text(
                 text = movie.title,
-                style = MaterialTheme.typography.headlineSmall,
-                modifier = Modifier.padding(8.dp)
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(16.dp)
             )
 
         }
@@ -69,9 +78,12 @@ fun MovieItemHorizontalCard(
 ){
 
     ElevatedCard(
-        modifier = modifier.padding(16.dp).fillMaxWidth(),
+        modifier = modifier
+            .padding(16.dp)
+            .fillMaxWidth(),
         onClick = onClick,
-        shape = RoundedCornerShape(16.dp)
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 8.dp)
     ) {
 
         Row(modifier = modifier.padding(16.dp)) {
@@ -86,6 +98,7 @@ fun MovieItemHorizontalCard(
                 modifier = Modifier
                     .clip(CircleShape)
                     .align(Alignment.CenterVertically)
+                    .heightIn(max = 48.dp)
             )
             Text(
                 text = movie.title,
@@ -100,9 +113,32 @@ fun MovieItemHorizontalCard(
 
 }
 
+@Composable
+fun Loading(modifier: Modifier = Modifier) {
+    CircularProgressIndicator(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .wrapContentWidth(Alignment.CenterHorizontally)
+    )
+}
+
+@Composable
+fun ErrorNextPageItem(modifier: Modifier = Modifier,  onClickRetry: () -> Unit) {
+    OutlinedButton(
+        onClick = onClickRetry,
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .wrapContentWidth(Alignment.CenterHorizontally)
+    ) {
+        Text(text = "Retry")
+    }
+}
 
 
-@Preview
+
+@Preview(showBackground = true)
 @Composable
 private fun MovieItemGridCardPreview(){
     FilmFeedAppTheme{
@@ -117,7 +153,7 @@ private fun MovieItemGridCardPreview(){
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun MovieItemHorizontalCardPreview(){
     FilmFeedAppTheme{
@@ -129,5 +165,21 @@ private fun MovieItemHorizontalCardPreview(){
             ),
             {}
         )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun LoadingPreview(){
+    FilmFeedAppTheme {
+        Loading(Modifier)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ErrorNextPageItemPreview(){
+    FilmFeedAppTheme {
+        ErrorNextPageItem(Modifier) {}
     }
 }

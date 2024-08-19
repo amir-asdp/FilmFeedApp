@@ -74,6 +74,8 @@ dependencies {
     // region UI Packages
     implementation(libs.androidx.appcompat)
     implementation(libs.google.android.material)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -83,6 +85,7 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.coil.kt.compose)
+    implementation(libs.github.grenderG.toasty)
     // endregion
 
 

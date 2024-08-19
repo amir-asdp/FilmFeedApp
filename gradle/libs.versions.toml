@@ -5,8 +5,8 @@ lifecycle = "2.8.4"
 workRuntime = "2.9.1"
 room = "2.6.1"
 paging = "3.3.2"
-kotlinxCoroutinesCore = "1.8.0-RC2"
-kotlinxCoroutinesAndroid = "1.7.3"
+kotlinxCoroutinesCore = "1.8.1"
+kotlinxCoroutinesAndroid = "1.8.1"
 koinBom = "3.6.0-wasm-alpha2"
 glide = "4.14.2"
 # endregion
@@ -14,9 +14,11 @@ glide = "4.14.2"
 # region UI Packages
 appcompat = "1.7.0"
 material = "1.12.0"
+navigation = "2.7.7"
 activityCompose = "1.9.1"
 composeBom = "2024.06.00"
 coilCompose = "2.7.0"
+toasty = "1.5.2"
 # endregion
 
 # region Web Packages
@@ -65,6 +67,8 @@ github-bumptech-compiler = {group = "com.github.bumptech.glide", name = "compile
 # region UI Packages
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 google-android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigation" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
@@ -73,6 +77,7 @@ androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilCompose" }
+github-grenderG-toasty = {group = "com.github.GrenderG", name = "Toasty", version.ref = "toasty"}
 # endregion
 
 # region Web Packages

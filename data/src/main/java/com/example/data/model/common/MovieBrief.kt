@@ -8,6 +8,8 @@ data class MovieBrief(
     val title: String,
     val posterPhotoUrl: String
 ){
+    constructor() : this("-", "-", "-")
+
     companion object {
         fun toMovieBrief(movieListResponseResultItem: MovieListResponse.Result): MovieBrief{
             return movieListResponseResultItem.let {

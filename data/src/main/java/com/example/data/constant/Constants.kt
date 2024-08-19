@@ -4,14 +4,14 @@ object Constants {
 
     object RemoteDataSource{
         object ApiUrl{
-            const val API_BASE_URL = "https://api.themoviedb.org/3"
+            const val API_BASE_URL = "https://api.themoviedb.org/3/"
             const val IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original"
 
             object Movie{
-                const val GET_TOP_RATED = "/movie/top_rated"
-                const val GET_POPULAR = "/movie/popular"
-                const val GET_DETAILS = "/movie/{movie_id}"
-                const val GET_SEARCH = "/search/movie"
+                const val GET_TOP_RATED = "movie/top_rated"
+                const val GET_POPULAR = "movie/popular"
+                const val GET_DETAILS = "movie/{movie_id}"
+                const val GET_SEARCH = "search/movie"
                 const val PATH_MOVIE_ID = "movie_id"
             }
         }
