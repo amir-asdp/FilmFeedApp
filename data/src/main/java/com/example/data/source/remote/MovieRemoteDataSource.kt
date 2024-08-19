@@ -19,8 +19,8 @@ interface MovieRemoteDataSource {
 
     @GET(Movie.GET_DETAILS)
     suspend fun getDetailsById(
-        @Query(ApiQueryParam.API_KEY_KEY) apiKey: String,
-        @Path(Movie.PATH_MOVIE_ID) movieId: Int
+        @Path(Movie.PATH_MOVIE_ID) movieId: Int,
+        @Query(ApiQueryParam.API_KEY_KEY) apiKey: String
     ): Response<MovieDetailsResponse>
 
     @GET(Movie.GET_SEARCH)

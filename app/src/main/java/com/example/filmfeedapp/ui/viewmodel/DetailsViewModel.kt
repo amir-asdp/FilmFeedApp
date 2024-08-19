@@ -3,6 +3,7 @@ package com.example.filmfeedapp.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.model.common.MovieDetail
+import com.example.data.model.common.ResultWrapper
 import com.example.domain.usecase.GetMovieDetailsUseCase
 import com.example.filmfeedapp.ui.model.BaseUiState
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -13,6 +13,7 @@ import com.example.data.source.paging.MovieSearchPagingSource
 import com.example.data.source.remote.MovieRemoteDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.CoroutineContext
 
@@ -29,18 +30,16 @@ class MovieRepositoryImpl(
     }
 
     override fun getMovieDetailsById(movieId: Int): Flow<ResultWrapper<MovieDetail>> = flow {
-        withContext(coroutineContext){
-            try {
-                val response = movieRemoteDataSource.getDetailsById(ApiQueryParam.API_KEY_VALUE, movieId)
-                ResultWrapper.Success(MovieDetail.toMovieDetail(response.body()!!))
-            }
-            catch (e: Exception){
-                ResultWrapper.CancelOrFailure(e)
-            }.also {
-                emit(it)
-            }
+        try {
+            val response = movieRemoteDataSource.getDetailsById(movieId, ApiQueryParam.API_KEY_VALUE)
+            ResultWrapper.Success(MovieDetail.toMovieDetail(response.body()!!))
         }
-    }
+        catch (e: Exception){
+            ResultWrapper.CancelOrFailure(e)
+        }.also {
+            emit(it)
+        }
+    }.flowOn(coroutineContext)
 
     override fun searchMovies(searchQuery: String): Flow<PagingData<MovieBrief>> {
         return Pager(
