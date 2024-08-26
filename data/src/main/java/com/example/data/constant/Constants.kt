@@ -2,7 +2,7 @@ package com.example.data.constant
 
 object Constants {
 
-    object RemoteDataSource{
+    object DataSourceRemote{
         object ApiUrl{
             const val API_BASE_URL = "https://api.themoviedb.org/3/"
             const val IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original"
@@ -24,8 +24,15 @@ object Constants {
         }
     }
 
-    object LocalDataSource{
+    object DataSourceLocal{
+        const val DB_FILE_NAME = "app_db"
 
+        object TableMovie {
+            const val TABLE_NAME = "movie_brief"
+            const val COLUMN_ID = "id"
+            const val COLUMN_TITLE = "title"
+            const val COLUMN_POSTER_PHOTO_PATH = "poster_photo_path"
+        }
     }
 
 }

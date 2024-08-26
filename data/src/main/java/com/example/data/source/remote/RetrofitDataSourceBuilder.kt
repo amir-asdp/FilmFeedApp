@@ -1,6 +1,6 @@
 package com.example.data.source.remote
 
-import com.example.data.constant.Constants.RemoteDataSource.ApiUrl
+import com.example.data.constant.Constants.DataSourceRemote.ApiUrl
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

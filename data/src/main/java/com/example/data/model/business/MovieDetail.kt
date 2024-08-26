@@ -1,6 +1,6 @@
-package com.example.data.model.common
+package com.example.data.model.business
 
-import com.example.data.constant.Constants.RemoteDataSource.ApiUrl
+import com.example.data.constant.Constants.DataSourceRemote.ApiUrl
 import com.example.data.model.remote.MovieDetailsResponse
 
 data class MovieDetail(

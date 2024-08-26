@@ -25,7 +25,7 @@ import androidx.navigation.NavHostController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.example.data.model.common.MovieBrief
+import com.example.data.model.business.MovieBrief
 import com.example.filmfeedapp.ui.component.ErrorNextPageItem
 import com.example.filmfeedapp.ui.component.Loading
 import com.example.filmfeedapp.ui.component.MovieItemGridCard

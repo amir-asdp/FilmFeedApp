@@ -1,7 +1,7 @@
 package com.example.data.source.remote
 
-import com.example.data.constant.Constants.RemoteDataSource.ApiUrl.Movie
-import com.example.data.constant.Constants.RemoteDataSource.ApiQueryParam
+import com.example.data.constant.Constants.DataSourceRemote.ApiUrl.Movie
+import com.example.data.constant.Constants.DataSourceRemote.ApiQueryParam
 import com.example.data.model.remote.MovieDetailsResponse
 import com.example.data.model.remote.MovieListResponse
 import retrofit2.Response

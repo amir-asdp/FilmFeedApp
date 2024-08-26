@@ -1,4 +1,4 @@
-package com.example.data.model.common
+package com.example.data.model
 
 sealed class ResultWrapper<out SuccessResultType> {
 

@@ -1,7 +1,7 @@
 package com.example.filmfeedapp.ui.model
 
 import androidx.paging.PagingData
-import com.example.data.model.common.MovieBrief
+import com.example.data.model.business.MovieBrief
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 

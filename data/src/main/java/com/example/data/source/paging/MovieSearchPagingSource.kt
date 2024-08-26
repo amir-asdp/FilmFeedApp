@@ -2,16 +2,18 @@ package com.example.data.source.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.data.constant.Constants.RemoteDataSource.ApiQueryParam
-import com.example.data.model.common.MovieBrief
+import com.example.data.constant.Constants.DataSourceRemote.ApiQueryParam
+import com.example.data.model.business.MovieBrief
 import com.example.data.source.remote.MovieRemoteDataSource
 import kotlinx.coroutines.withContext
+import retrofit2.HttpException
+import java.io.IOException
 import kotlin.coroutines.CoroutineContext
 
 class MovieSearchPagingSource(
-    private val movieRemoteDataSource: MovieRemoteDataSource,
+    private val searchQuery: String,
     private val coroutineContext: CoroutineContext,
-    private val searchQuery: String
+    private val movieRemoteDataSource: MovieRemoteDataSource,
 ) : PagingSource<Int, MovieBrief>() {
 
     override fun getRefreshKey(state: PagingState<Int, MovieBrief>): Int? {
@@ -33,7 +35,10 @@ class MovieSearchPagingSource(
                     nextKey = if (loadedList.isEmpty()) null else response.body()!!.page!! + 1
                 )
             }
-            catch (e: Exception){
+            catch (e: IOException){
+                LoadResult.Error(e)
+            }
+            catch (e: HttpException){
                 LoadResult.Error(e)
             }
         }
