@@ -11,6 +11,8 @@ import com.example.data.model.local.MovieBriefEntity
 import com.example.data.source.local.ImageCacheManager
 import com.example.data.source.local.LocalDataSource
 import com.example.data.source.remote.MovieRemoteDataSource
+import retrofit2.HttpException
+import java.io.IOException
 
 @OptIn(ExperimentalPagingApi::class)
 class MovieOrderByRateRemoteMediator(
@@ -23,34 +25,41 @@ class MovieOrderByRateRemoteMediator(
         loadType: LoadType,
         state: PagingState<Int, MovieBriefEntity>
     ): MediatorResult {
+
         return try {
-            val page = when(loadType){
+
+            val currentLastPage: Int? = when(loadType){
                 LoadType.REFRESH -> null
                 LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
-                LoadType.APPEND -> state.pages.lastOrNull()?.nextKey ?: return MediatorResult.Success(endOfPaginationReached = true)
+                LoadType.APPEND -> {
+                    state.pages.size
+                }
             }
 
-            val movieResponse = movieRemoteDataSource.getTopRated(ApiQueryParam.API_KEY_VALUE, page ?: 1)
+            val movieResponse = movieRemoteDataSource.getTopRated(ApiQueryParam.API_KEY_VALUE, currentLastPage?.plus(1) ?: 1)
             val movieList = movieResponse.body()?.results?.map {
                 MovieBriefEntity(
-                    id = it?.id?:1,
+                    id = it?.id.toString(),
                     title = it?.title.toString(),
-                    posterPhotoPath = imageCacheManager.cacheImage(ApiUrl.IMAGE_BASE_URL + it?.posterPath)
+                    posterPhotoPath = imageCacheManager.cacheImage(ApiUrl.IMAGE_BASE_URL_W500 + it?.posterPath)
                 )
-            }?: mutableListOf()
+            }?: listOf()
 
             localDataSource.withTransaction {
-                if (loadType == LoadType.REFRESH) {
-                    localDataSource.movieBriefEntityDao().clearAll()
-                }
-
                 localDataSource.movieBriefEntityDao().insertAll(movieList)
             }
 
+
             MediatorResult.Success(endOfPaginationReached = movieList.isEmpty())
-        } catch (e: Exception) {
+
+        }
+        catch (e: IOException){
             MediatorResult.Error(e)
         }
+        catch (e: HttpException){
+            MediatorResult.Error(e)
+        }
+
     }
 
 }

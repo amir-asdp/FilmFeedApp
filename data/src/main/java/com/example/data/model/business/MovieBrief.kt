@@ -16,8 +16,8 @@ data class MovieBrief(
             return movieListResponseResultItem.let {
                 MovieBrief(
                     it.id.toString(),
-                    it.originalTitle.toString(),
-                    (ApiUrl.IMAGE_BASE_URL + it.posterPath)
+                    it.title.toString(),
+                    (ApiUrl.IMAGE_BASE_URL_W500 + it.posterPath)
                 )
             }
         }
@@ -25,8 +25,8 @@ data class MovieBrief(
         fun toMovieBrief(movieBriefEntity: MovieBriefEntity): MovieBrief{
             return movieBriefEntity.let {
                 MovieBrief(
-                    it.id.toString(),
-                    it.title.toString(),
+                    it.id,
+                    it.title,
                     it.posterPhotoPath
                 )
             }

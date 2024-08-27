@@ -32,7 +32,7 @@ class MovieSearchPagingSource(
                 LoadResult.Page(
                     data = loadedList,
                     prevKey = if (currentPage == 1) null else currentPage - 1,
-                    nextKey = if (loadedList.isEmpty()) null else response.body()!!.page!! + 1
+                    nextKey = if (loadedList.isEmpty()) null else currentPage + 1
                 )
             }
             catch (e: IOException){

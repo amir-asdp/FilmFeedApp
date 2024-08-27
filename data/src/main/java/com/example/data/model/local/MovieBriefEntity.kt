@@ -7,7 +7,7 @@ import com.example.data.constant.Constants.DataSourceLocal.TableMovie
 @Entity(tableName = TableMovie.TABLE_NAME)
 data class MovieBriefEntity(
     @PrimaryKey
-    val id: Int,
+    val id: String,
     val title: String,
     val posterPhotoPath: String
 )

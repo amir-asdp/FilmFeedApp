@@ -22,8 +22,8 @@ data class MovieDetail(
             return movieDetailsResponse.let {
                 MovieDetail(
                     it.id.toString(),
-                    it.originalTitle.toString(),
-                    (ApiUrl.IMAGE_BASE_URL + it.posterPath),
+                    it.title.toString(),
+                    (ApiUrl.IMAGE_BASE_URL_ORIGINAL + it.posterPath),
                     it.status.toString(),
                     it.originCountry?.get(0).toString(),
                     it.originalLanguage.toString(),

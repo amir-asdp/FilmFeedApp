@@ -5,7 +5,8 @@ object Constants {
     object DataSourceRemote{
         object ApiUrl{
             const val API_BASE_URL = "https://api.themoviedb.org/3/"
-            const val IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original"
+            const val IMAGE_BASE_URL_ORIGINAL = "https://image.tmdb.org/t/p/original"
+            const val IMAGE_BASE_URL_W500 = "https://image.tmdb.org/t/p/w500"
 
             object Movie{
                 const val GET_TOP_RATED = "movie/top_rated"

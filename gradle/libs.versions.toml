@@ -16,7 +16,7 @@ appcompat = "1.7.0"
 material = "1.12.0"
 navigation = "2.7.7"
 activityCompose = "1.9.1"
-composeBom = "2024.06.00"
+composeBom = "2024.08.00"
 coilCompose = "2.7.0"
 toasty = "1.5.2"
 # endregion
@@ -33,7 +33,8 @@ espressoCore = "3.6.1"
 
 # region Plugins
 agp = "8.5.2"
-kotlin = "2.0.0"
+ksp = "2.0.20-1.0.24"
+kotlin = "2.0.20"
 # endregion
 
 
@@ -50,6 +51,7 @@ androidx-work-runtime = {group = "androidx.work", name = "work-runtime", version
 androidx-room-ktx = {group = "androidx.room", name = "room-ktx", version.ref = "room"}
 androidx-room-runtime = {group = "androidx.room", name = "room-runtime", version.ref = "room"}
 androidx-room-compiler = {group = "androidx.room", name = "room-compiler", version.ref = "room"}
+androidx-room-paging = {group = "androidx.room", name = "room-paging", version.ref = "room"}
 androidx-paging-runtime = {group = "androidx.paging", name = "paging-runtime", version.ref = "paging"}
 androidx-paging-compose = {group = "androidx.paging", name = "paging-compose", version.ref = "paging"}
 jetbrains-kotlinx-coroutines-core = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore"}
@@ -97,6 +99,7 @@ androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-
 [plugins]
 android-application = {id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 jetbrains-kotlin-android = {id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 jetbrains-kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
